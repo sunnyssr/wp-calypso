@@ -16,7 +16,7 @@ import './style.scss';
 export default function NoResults( { text, image = false } ) {
 	const translate = useTranslate();
 	if ( text === undefined ) {
-		text = translate( 'No results' );
+		text = translate( 'No results.' );
 	}
 	return (
 		<div className="no-results">
