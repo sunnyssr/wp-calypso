@@ -289,7 +289,7 @@
 		"babel-plugin-dynamic-import-node": "2.3.0",
 		"chai": "4.2.0",
 		"chai-enzyme": "1.0.0-beta.1",
-		"check-node-version": "3.3.0",
+		"check-node-version": "4.0.1",
 		"color-studio": "1.0.5",
 		"concurrently": "4.1.1",
 		"enzyme": "3.9.0",
