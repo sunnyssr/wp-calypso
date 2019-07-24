@@ -86,8 +86,8 @@ class EmailForwardingItem extends React.Component {
 								em: <em />,
 							},
 							args: {
-								email: email,
-								forwardTo: destination,
+								email: email || '',
+								forwardTo: destination || '',
 							},
 						}
 					) }
