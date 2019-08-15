@@ -498,8 +498,6 @@ export class Checkout extends React.Component {
 			selectedSiteSlug,
 			transaction: { step: { data: stepResult = null } = {} } = {},
 		} = this.props;
-		const domainReceiptId = get( getGoogleApps( cart ), '[0].extra.receipt_for_domain', 0 );
-		const siteDesignType = get( selectedSite, 'options.design_type' );
 
 		const adminUrl = get( selectedSite, [ 'options', 'admin_url' ] );
 
@@ -596,6 +594,10 @@ export class Checkout extends React.Component {
 
 		if ( hasConciergeSession( cart ) ) {
 			displayModeParam = { d: 'concierge' };
+		}
+
+		if ( hasGoogleApps( cart ) ) {
+			displayModeParam = { d: 'gsuite' };
 		}
 
 		// pendingOrReceiptId takes a value of ':receiptId' if a redirect payment has been selected,
