@@ -1,8 +1,12 @@
 /** @format */
 /**
+ * External dependencies
+ */
+import { get } from 'lodash';
+/**
  * Internal dependencies
  */
-import { hasEcommercePlan } from 'lib/cart-values/cart-items';
+import { hasEcommercePlan, getGoogleApps, hasGoogleApps } from 'lib/cart-values/cart-items';
 import isEligibleForDotcomChecklist from './is-eligible-for-dotcom-checklist';
 import { retrieveSignupDestination } from 'signup/utils';
 
