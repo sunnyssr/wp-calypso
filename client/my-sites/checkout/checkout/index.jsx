@@ -95,7 +95,11 @@ import getPreviousPath from 'state/selectors/get-previous-path.js';
 import config from 'config';
 import { abtest } from 'lib/abtest';
 import { loadTrackingTool } from 'state/analytics/actions';
-import { retrieveSignupDestination, clearSignupDestinationCookie } from 'signup/utils';
+import {
+	persistSignupDestination,
+	retrieveSignupDestination,
+	clearSignupDestinationCookie,
+} from 'signup/utils';
 import { isExternal } from 'lib/url';
 
 /**
@@ -396,12 +400,38 @@ export class Checkout extends React.Component {
 			if ( isJetpackNotAtomic ) {
 				return `/plans/my-plan/${ selectedSiteSlug }?thank-you&install=all`;
 			}
+
+			if ( hasEcommercePlan( cart ) ) {
+				return `/checkout/thank-you/${ selectedSiteSlug }/${ pendingOrReceiptId }`;
+			}
 			return selectedFeature && isValidFeatureKey( selectedFeature )
 				? `/checkout/thank-you/features/${ selectedFeature }/${ selectedSiteSlug }/${ pendingOrReceiptId }`
 				: `/checkout/thank-you/${ selectedSiteSlug }/${ pendingOrReceiptId }`;
 		}
 
 		return '/';
+	}
+
+	setDestinationIfEcommPlan( pendingOrReceiptId ) {
+		const { cart } = this.props;
+
+		if ( hasEcommercePlan( cart ) ) {
+			const ecommDestination = this.getUrlWithQueryParam(
+				this.getFallbackDestination( pendingOrReceiptId ),
+				{ fReceiptId: pendingOrReceiptId }
+			);
+			persistSignupDestination( ecommDestination );
+		} else {
+			const signupDestination = retrieveSignupDestination();
+			const { query } = parseUrl( signupDestination, true );
+
+			if ( query && query.fReceiptId ) {
+				const ecommDestination = this.getUrlWithQueryParam(
+					this.getFallbackDestination( query.fReceiptId )
+				);
+				persistSignupDestination( ecommDestination );
+			}
+		}
 	}
 
 	maybeShowPlanBumpOfferGSuite( receiptId ) {
@@ -541,6 +571,8 @@ export class Checkout extends React.Component {
 			pendingOrReceiptId = this.props.purchaseId ? this.props.purchaseId : ':receiptId';
 		}
 
+		this.setDestinationIfEcommPlan( pendingOrReceiptId );
+
 		const signupDestination =
 			retrieveSignupDestination() || this.getFallbackDestination( pendingOrReceiptId );
 
@@ -580,6 +612,9 @@ export class Checkout extends React.Component {
 		if ( redirectPathForConciergeUpsell ) {
 			return redirectPathForConciergeUpsell;
 		}
+
+		// Display mode is used to show purchase specific messaging, for e.g. the Schedule Session button
+		// when purchasing a concierge session. We do not want to show it if there's an eCommerce plan
 
 		if ( hasConciergeSession( cart ) ) {
 			displayModeParam = { d: 'concierge' };
@@ -626,7 +661,7 @@ export class Checkout extends React.Component {
 		// (e.g. if the destination is an upsell nudge, it does not remove the cookie).
 		// An exception is when we have an eCommerce plan in cart, in which case we always
 		// take to the thank you page so destination cookie can be cleared.
-		if ( redirectPath.includes( destinationFromCookie ) || hasEcommercePlan( cart ) ) {
+		if ( redirectPath.includes( destinationFromCookie ) ) {
 			clearSignupDestinationCookie();
 		}
 

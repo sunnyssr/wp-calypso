@@ -6,7 +6,7 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { hasEcommercePlan, getGoogleApps, hasGoogleApps } from 'lib/cart-values/cart-items';
+import { getGoogleApps, hasGoogleApps } from 'lib/cart-values/cart-items';
 import isEligibleForDotcomChecklist from './is-eligible-for-dotcom-checklist';
 import { retrieveSignupDestination } from 'signup/utils';
 
@@ -17,10 +17,6 @@ import { retrieveSignupDestination } from 'signup/utils';
  * @return {Boolean} True if current user is able to see the checklist after checkout
  */
 export default function isEligibleForSignupDestination( state, siteId, cart ) {
-	if ( hasEcommercePlan( cart ) ) {
-		return false;
-	}
-
 	if ( hasGoogleApps( cart ) ) {
 		const domainReceiptId = get( getGoogleApps( cart ), '[0].extra.receipt_for_domain', 0 );
 
