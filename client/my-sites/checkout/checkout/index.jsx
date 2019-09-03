@@ -401,9 +401,6 @@ export class Checkout extends React.Component {
 				return `/plans/my-plan/${ selectedSiteSlug }?thank-you&install=all`;
 			}
 
-			if ( hasEcommercePlan( cart ) ) {
-				return `/checkout/thank-you/${ selectedSiteSlug }/${ pendingOrReceiptId }`;
-			}
 			return selectedFeature && isValidFeatureKey( selectedFeature )
 				? `/checkout/thank-you/features/${ selectedFeature }/${ selectedSiteSlug }/${ pendingOrReceiptId }`
 				: `/checkout/thank-you/${ selectedSiteSlug }/${ pendingOrReceiptId }`;
@@ -411,6 +408,14 @@ export class Checkout extends React.Component {
 
 		return '/';
 	}
+
+	/**
+	 * If there is an ecommerce plan in cart, saves the destination cookie as Thank You page along with the receipt id.
+	 * If the user purchases additional products via upsell nudges, the original saved receipt ID will be used to
+	 * display the Thank You page for the eCommerce plan purchase.
+	 *
+	 * @param {String} pendingOrReceiptId The receipt id for the transaction
+	 */
 
 	setDestinationIfEcommPlan( pendingOrReceiptId ) {
 		const { cart } = this.props;
@@ -420,9 +425,15 @@ export class Checkout extends React.Component {
 				this.getFallbackDestination( pendingOrReceiptId ),
 				{ fReceiptId: pendingOrReceiptId }
 			);
+
 			persistSignupDestination( ecommDestination );
 		} else {
 			const signupDestination = retrieveSignupDestination();
+
+			if ( ! signupDestination ) {
+				return;
+			}
+
 			const { query } = parseUrl( signupDestination, true );
 
 			if ( query && query.fReceiptId ) {
@@ -614,7 +625,7 @@ export class Checkout extends React.Component {
 		}
 
 		// Display mode is used to show purchase specific messaging, for e.g. the Schedule Session button
-		// when purchasing a concierge session. We do not want to show it if there's an eCommerce plan
+		// when purchasing a concierge session.
 
 		if ( hasConciergeSession( cart ) ) {
 			displayModeParam = { d: 'concierge' };
@@ -659,8 +670,6 @@ export class Checkout extends React.Component {
 
 		// Removes the destination cookie only if redirecting to the signup destination.
 		// (e.g. if the destination is an upsell nudge, it does not remove the cookie).
-		// An exception is when we have an eCommerce plan in cart, in which case we always
-		// take to the thank you page so destination cookie can be cleared.
 		if ( redirectPath.includes( destinationFromCookie ) ) {
 			clearSignupDestinationCookie();
 		}
