@@ -22152,9 +22152,31 @@
 			"integrity": "sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q="
 		},
 		"twemoji": {
-			"version": "11.2.0",
-			"resolved": "https://registry.npmjs.org/twemoji/-/twemoji-11.2.0.tgz",
-			"integrity": "sha512-DgTadXkRHugun6mjUf1k3ni04WC4jHOX1bN5MjuCM3nwRyIMdXIr8FmWzW5mEIZjht5jD3NaEyXC4j3POdQwyQ=="
+			"version": "12.1.3",
+			"resolved": "https://registry.npmjs.org/twemoji/-/twemoji-12.1.3.tgz",
+			"integrity": "sha512-Y5mC7vVovHZvCzdXDepJaU6FHPd7PaW6ZTBMWy9sGYafLBn1x0h2T6aGA3cpnz3WgWWg2QI+3D+9Rn4Z/ViitQ==",
+			"requires": {
+				"fs-extra": "^8.0.1",
+				"jsonfile": "^5.0.0",
+				"twemoji-parser": "12.1.0",
+				"universalify": "^0.1.2"
+			},
+			"dependencies": {
+				"jsonfile": {
+					"version": "5.0.0",
+					"resolved": "https://registry.npmjs.org/jsonfile/-/jsonfile-5.0.0.tgz",
+					"integrity": "sha512-NQRZ5CRo74MhMMC3/3r5g2k4fjodJ/wh8MxjFbCViWKFjxrnudWSY5vomh+23ZaXzAS7J3fBZIR2dV6WbmfM0w==",
+					"requires": {
+						"graceful-fs": "^4.1.6",
+						"universalify": "^0.1.2"
+					}
+				}
+			}
+		},
+		"twemoji-parser": {
+			"version": "12.1.0",
+			"resolved": "https://registry.npmjs.org/twemoji-parser/-/twemoji-parser-12.1.0.tgz",
+			"integrity": "sha512-jaHYltumP/E8nR+YzRrY753j9dEpL3zH8+pDXgf9h/10wHeW/9IIjs6mZ1Z/Syh8rIaOQObev1BAX/AinFmuOg=="
 		},
 		"type-check": {
 			"version": "0.3.2",
