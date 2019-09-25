@@ -78,7 +78,7 @@ class SocialSignupForm extends Component {
 				{ ! this.props.compact && (
 					<p>
 						{ preventWidows(
-							this.props.translate( 'Or connect your existing profile to get started faster:' )
+							this.props.translate( 'Or connect your existing profile to get started faster.' )
 						) }
 					</p>
 				) }
