@@ -60,6 +60,9 @@ function getThankYouNoSiteDestination() {
 function getChecklistThemeDestination( dependencies ) {
 	return `/checklist/${ dependencies.siteSlug }?d=theme`;
 }
+function getEditorDestination( dependencies ) {
+	return `/block-editor/page/${ dependencies.siteSlug }/home`;
+}
 
 const flows = generateFlows( {
 	getSiteDestination,
@@ -67,6 +70,7 @@ const flows = generateFlows( {
 	getSignupDestination,
 	getThankYouNoSiteDestination,
 	getChecklistThemeDestination,
+	getEditorDestination,
 } );
 
 function removeUserStepFromFlow( flow ) {
