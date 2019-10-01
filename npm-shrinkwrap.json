@@ -3996,7 +3996,8 @@
 		"acorn-dynamic-import": {
 			"version": "4.0.0",
 			"resolved": "https://registry.npmjs.org/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz",
-			"integrity": "sha512-d3OEjQV4ROpoflsnUA8HozoIR504TFxNivYEUi6uwz0IYhBkTDXGuWlNdMtybRt3nqVx/L6XqMt0FxkXuWKZhw=="
+			"integrity": "sha512-d3OEjQV4ROpoflsnUA8HozoIR504TFxNivYEUi6uwz0IYhBkTDXGuWlNdMtybRt3nqVx/L6XqMt0FxkXuWKZhw==",
+			"dev": true
 		},
 		"acorn-globals": {
 			"version": "4.3.3",
@@ -4011,7 +4012,8 @@
 		"acorn-jsx": {
 			"version": "5.0.2",
 			"resolved": "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.0.2.tgz",
-			"integrity": "sha512-tiNTrP1MP0QrChmD2DdupCr6HWSFeKVw5d/dHTu4Y7rkAkRhU/Dt7dphAfIUyxtHpl/eBVip5uTNSpQJHylpAw=="
+			"integrity": "sha512-tiNTrP1MP0QrChmD2DdupCr6HWSFeKVw5d/dHTu4Y7rkAkRhU/Dt7dphAfIUyxtHpl/eBVip5uTNSpQJHylpAw==",
+			"dev": true
 		},
 		"acorn-walk": {
 			"version": "6.2.0",
@@ -5033,29 +5035,22 @@
 			"integrity": "sha1-M3dm2hWAEhD92VbCLpxokaudAzc="
 		},
 		"buble": {
-			"version": "0.19.8",
-			"resolved": "https://registry.npmjs.org/buble/-/buble-0.19.8.tgz",
-			"integrity": "sha512-IoGZzrUTY5fKXVkgGHw3QeXFMUNBFv+9l8a4QJKG1JhG3nCMHTdEX1DCOg8568E2Q9qvAQIiSokv6Jsgx8p2cA==",
+			"version": "0.19.6",
+			"resolved": "https://registry.npmjs.org/buble/-/buble-0.19.6.tgz",
+			"integrity": "sha512-9kViM6nJA1Q548Jrd06x0geh+BG2ru2+RMDkIHHgJY/8AcyCs34lTHwra9BX7YdPrZXd5aarkpr/SY8bmPgPdg==",
 			"requires": {
-				"acorn": "^6.1.1",
-				"acorn-dynamic-import": "^4.0.0",
-				"acorn-jsx": "^5.0.1",
-				"chalk": "^2.4.2",
-				"magic-string": "^0.25.3",
+				"chalk": "^2.4.1",
+				"magic-string": "^0.25.1",
 				"minimist": "^1.2.0",
-				"os-homedir": "^2.0.0",
-				"regexpu-core": "^4.5.4"
+				"os-homedir": "^1.0.1",
+				"regexpu-core": "^4.2.0",
+				"vlq": "^1.0.0"
 			},
 			"dependencies": {
 				"minimist": {
 					"version": "1.2.0",
 					"resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz",
 					"integrity": "sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ="
-				},
-				"os-homedir": {
-					"version": "2.0.0",
-					"resolved": "https://registry.npmjs.org/os-homedir/-/os-homedir-2.0.0.tgz",
-					"integrity": "sha512-saRNz0DSC5C/I++gFIaJTXoFJMRwiP5zHar5vV3xQ2TkgEw6hDCcU5F272JjUylpiVgBrZNQHnfjkLabTfb92Q=="
 				}
 			}
 		},
@@ -6886,9 +6881,9 @@
 			}
 		},
 		"create-react-context": {
-			"version": "0.2.3",
-			"resolved": "https://registry.npmjs.org/create-react-context/-/create-react-context-0.2.3.tgz",
-			"integrity": "sha512-CQBmD0+QGgTaxDL3OX1IDXYqjkp2It4RIbcb99jS6AEg27Ga+a9G3JtK6SIu0HBwPLZlmwt9F7UwWA4Bn92Rag==",
+			"version": "0.2.2",
+			"resolved": "https://registry.npmjs.org/create-react-context/-/create-react-context-0.2.2.tgz",
+			"integrity": "sha512-KkpaLARMhsTsgp0d2NA/R94F/eDLbhXERdIq3LvX2biCAXcDvHYoOqHfWCHf1+OLj+HKBotLG3KqaOOf+C1C+A==",
 			"requires": {
 				"fbjs": "^0.8.0",
 				"gud": "^1.0.0"
@@ -13661,9 +13656,9 @@
 			"integrity": "sha512-OHhSbtcviqMPt7yfw5ef5aghS2jzFVKEFyCJndQt2YpSQ9qRVSEv2axSJI1paVThEu+FFGs584h/1YhxjVqajA=="
 		},
 		"magic-string": {
-			"version": "0.25.3",
-			"resolved": "https://registry.npmjs.org/magic-string/-/magic-string-0.25.3.tgz",
-			"integrity": "sha512-6QK0OpF/phMz0Q2AxILkX2mFhi7m+WMwTRg0LQKq/WBB0cDP4rYH3Wp4/d3OTXlrPLVJT/RFqj8tFeAR4nk8AA==",
+			"version": "0.25.4",
+			"resolved": "https://registry.npmjs.org/magic-string/-/magic-string-0.25.4.tgz",
+			"integrity": "sha512-oycWO9nEVAP2RVPbIoDoA4Y7LFIJ3xRYov93gAyJhZkET1tNuB0u7uWkZS2LpBWTJUWnmau/To8ECWRC+jKNfw==",
 			"requires": {
 				"sourcemap-codec": "^1.4.4"
 			}
@@ -18200,6 +18195,11 @@
 			"resolved": "https://registry.npmjs.org/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz",
 			"integrity": "sha1-t+PqQkNaTJsnWdmeDyAesZWALuE="
 		},
+		"prism-react-renderer": {
+			"version": "0.1.7",
+			"resolved": "https://registry.npmjs.org/prism-react-renderer/-/prism-react-renderer-0.1.7.tgz",
+			"integrity": "sha512-EhnM0sYfLK103ASK0ViSv0rta//ZGB0dBA9TiFyOvA+zOj5peLmGEG01sLEDwl9sMe+gSqncInafBe1VFTCMvA=="
+		},
 		"prismjs": {
 			"version": "1.16.0",
 			"resolved": "https://registry.npmjs.org/prismjs/-/prismjs-1.16.0.tgz",
@@ -18630,38 +18630,18 @@
 			"integrity": "sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA=="
 		},
 		"react-live": {
-			"version": "1.12.0",
-			"resolved": "https://registry.npmjs.org/react-live/-/react-live-1.12.0.tgz",
-			"integrity": "sha512-zFEpY01fJORF0IiyONqvjwPLBBDp155Ive6tU8ZmetmT2p4XWUKHstnlu4Cayia+n7iu58Owytztu43yvSin8g==",
+			"version": "2.2.1",
+			"resolved": "https://registry.npmjs.org/react-live/-/react-live-2.2.1.tgz",
+			"integrity": "sha512-J97Fk0it6DFgEneGX2DbxugVy3++nb1fGUy3TcehQZcvfRI6ssnbrXyDE94xCUT0zJMC48tX1wT6GEaK+lDYsA==",
 			"requires": {
-				"buble": "^0.19.3",
+				"buble": "0.19.6",
 				"core-js": "^2.4.1",
-				"create-react-context": "^0.2.3",
+				"create-react-context": "0.2.2",
 				"dom-iterator": "^1.0.0",
-				"prismjs": "1.6",
+				"prism-react-renderer": "^0.1.0",
 				"prop-types": "^15.5.8",
+				"react-simple-code-editor": "^0.10.0",
 				"unescape": "^0.2.0"
-			},
-			"dependencies": {
-				"clipboard": {
-					"version": "1.7.1",
-					"resolved": "https://registry.npmjs.org/clipboard/-/clipboard-1.7.1.tgz",
-					"integrity": "sha1-Ng1taUbpmnof7zleQrqStem1oWs=",
-					"optional": true,
-					"requires": {
-						"good-listener": "^1.2.2",
-						"select": "^1.1.2",
-						"tiny-emitter": "^2.0.0"
-					}
-				},
-				"prismjs": {
-					"version": "1.6.0",
-					"resolved": "https://registry.npmjs.org/prismjs/-/prismjs-1.6.0.tgz",
-					"integrity": "sha1-EY2V+3pm26InLjQ7NF9SNmWds2U=",
-					"requires": {
-						"clipboard": "^1.5.5"
-					}
-				}
 			}
 		},
 		"react-modal": {
@@ -18731,6 +18711,11 @@
 					}
 				}
 			}
+		},
+		"react-simple-code-editor": {
+			"version": "0.10.0",
+			"resolved": "https://registry.npmjs.org/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz",
+			"integrity": "sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA=="
 		},
 		"react-spring": {
 			"version": "8.0.27",
@@ -22664,6 +22649,11 @@
 			"requires": {
 				"unist-util-stringify-position": "^1.1.1"
 			}
+		},
+		"vlq": {
+			"version": "1.0.1",
+			"resolved": "https://registry.npmjs.org/vlq/-/vlq-1.0.1.tgz",
+			"integrity": "sha512-gQpnTgkubC6hQgdIcRdYGDSDc+SaujOdyesZQMv6JlfQee/9Mp0Qhnys6WxDWvQnL5WZdT7o2Ul187aSt0Rq+w=="
 		},
 		"vm-browserify": {
 			"version": "1.1.0",
