@@ -5,7 +5,29 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Hosting = () => <p>Placeholder</p>;
+/**
+ * Internal dependencies
+ */
+import { requestAtomicSFTPDetails } from 'state/data-getters';
+import { getSelectedSiteId } from 'state/ui/selectors';
 
-export default Hosting;
+const Hosting = ( { atomicSFTPDetails } ) => {
+	return (
+		<p>
+			SFTP Username:{' '}
+			{ atomicSFTPDetails && atomicSFTPDetails.data && (
+				<span>{ atomicSFTPDetails.data.username }</span>
+			) }
+		</p>
+	);
+};
+
+export default connect( state => {
+	const atomicSFTPDetails = requestAtomicSFTPDetails( getSelectedSiteId( state ) );
+
+	return {
+		atomicSFTPDetails,
+	};
+} )( Hosting );
