@@ -29,6 +29,6 @@
 	"scripts": {
 		"clean": "npx rimraf dist types",
 		"prepublish": "npm run clean",
-		"prepare": "tsc --project=tsconfig-cjs.json && tsc --project=tsconfig-esm.json"
+		"prepare": "tsc --project tsconfig-cjs.json && tsc --project tsconfig-esm.json"
 	}
 }
