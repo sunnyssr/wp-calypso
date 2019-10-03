@@ -1,17 +1,16 @@
-/** @format */
-
 /**
  * External dependencies
  */
 import debugFactory from 'debug';
-const debug = debugFactory( 'lib/load-script/dom-operations' );
 
 /**
  * Internal dependencies
  */
 import { handleRequestError, handleRequestSuccess } from './callback-handler';
 
-export function createScriptElement( url ) {
+const debug = debugFactory( 'lib/load-script/dom-operations' );
+
+export function createScriptElement( url: string ) {
 	debug( `Creating script element for "${ url }"` );
 	const script = document.createElement( 'script' );
 	script.src = url;

@@ -1,14 +1,17 @@
-/** @format */
 /**
  * External dependencies
  */
 import debugFactory from 'debug';
-const debug = debugFactory( 'lib/load-script/callback-handler' );
 
 /**
- * Module variables
+ * Callbacks that will be invoked
+ *
+ * Callbacks will be passed `null` on success or `Error` otherwise.
  */
-const callbacksForURLsInProgress = new Map();
+type ScriptCallback = ( error: null | Error ) => void;
+
+const debug = debugFactory( 'lib/load-script/callback-handler' );
+const callbacksForURLsInProgress = new Map< string, Set< ScriptCallback > >();
 
 export function getCallbacksMap() {
 	return callbacksForURLsInProgress;
@@ -18,7 +21,7 @@ export function isLoading( url ) {
 	return getCallbacksMap().has( url );
 }
 
-export function addScriptCallback( url, callback ) {
+export function addScriptCallback( url: string, callback: ScriptCallback ) {
 	const callbacksMap = getCallbacksMap();
 	if ( isLoading( url ) ) {
 		debug( `Adding a callback for an existing script from "${ url }"` );
@@ -29,7 +32,7 @@ export function addScriptCallback( url, callback ) {
 	}
 }
 
-export function removeScriptCallback( url, callback ) {
+export function removeScriptCallback( url: string, callback: ScriptCallback ) {
 	debug( `Removing a known callback for a script from "${ url }"` );
 
 	if ( ! isLoading( url ) ) {
