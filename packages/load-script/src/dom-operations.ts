@@ -16,12 +16,12 @@ export function createScriptElement( url: string ) {
 	script.src = url;
 	script.type = 'text/javascript';
 	script.async = true;
-	script.onload = handleRequestSuccess;
-	script.onerror = handleRequestError;
+	script.addEventListener( 'load', handleRequestSuccess );
+	script.addEventListener( 'error', handleRequestError );
 	return script;
 }
 
-export function attachToHead( element ) {
+export function attachToHead( node: Node ) {
 	debug( 'Attaching element to head' );
-	document.head.appendChild( element );
+	document.head.appendChild( node );
 }

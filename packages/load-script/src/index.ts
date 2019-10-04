@@ -12,6 +12,7 @@ import debugFactory from 'debug';
  */
 import { addScriptCallback, isLoading } from './callback-handler';
 import { createScriptElement, attachToHead } from './dom-operations';
+import { ScriptCallback } from './types';
 
 const debug = debugFactory( 'package/load-script' );
 
@@ -23,7 +24,19 @@ export { removeScriptCallback } from './callback-handler';
  */
 export const JQUERY_URL = 'https://s0.wp.com/wp-includes/js/jquery/jquery.js';
 
-export function loadScript( url: string, callback?: () => void ): Promise< void > {
+/**
+ *
+ * @param url      Script URL
+ * @param callback Callback invoked on load or error
+ */
+export function loadScript( url: string, callback: ScriptCallback ): void;
+/**
+ * Load a script, returns a Promise
+ *
+ * @param url Script URL
+ */
+export function loadScript( url: string ): Promise< void >;
+export function loadScript( url: string, callback?: ScriptCallback ): void | Promise< void > {
 	// If this script is not currently being loaded, create a script element and attach to document head.
 	const shouldLoadScript = ! isLoading( url );
 	if ( shouldLoadScript ) {
@@ -50,7 +63,7 @@ export function loadScript( url: string, callback?: () => void ): Promise< void 
 	} );
 }
 
-export function loadjQueryDependentScript( url, callback ) {
+export function loadjQueryDependentScript( url: string, callback: ScriptCallback ) {
 	debug( `Loading a jQuery dependent script from "${ url }"` );
 
 	if ( ( window as { jQuery?: unknown } ).jQuery ) {
