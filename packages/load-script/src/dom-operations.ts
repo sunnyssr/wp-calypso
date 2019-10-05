@@ -16,8 +16,8 @@ export function createScriptElement( url: string ) {
 	script.src = url;
 	script.type = 'text/javascript';
 	script.async = true;
-	script.addEventListener( 'load', handleRequestSuccess );
-	script.addEventListener( 'error', handleRequestError );
+	script.addEventListener( 'load', handleRequestSuccess, { once: true } );
+	script.addEventListener( 'error', handleRequestError, { once: true } );
 	return script;
 }
 

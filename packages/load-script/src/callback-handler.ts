@@ -8,7 +8,7 @@ import debugFactory from 'debug';
  */
 import { ScriptCallback } from './types';
 
-const debug = debugFactory( 'lib/load-script/callback-handler' );
+const debug = debugFactory( 'load-script:callback-handler' );
 const callbacksForURLsInProgress = new Map< string, Set< ScriptCallback > >();
 
 export function getCallbacksMap() {
@@ -82,12 +82,10 @@ export function handleRequestSuccess( this: HTMLScriptElement ) {
 	const url = this.src;
 	debug( `Handling successful request for "${ url }"` );
 	executeCallbacks( url );
-	this.onload = null;
 }
 
 export function handleRequestError( this: HTMLScriptElement ) {
 	const url = this.src;
 	debug( `Handling failed request for "${ url }"` );
 	executeCallbacks( url, new Error( `Failed to load script "${ url }"` ) );
-	this.onerror = null;
 }
