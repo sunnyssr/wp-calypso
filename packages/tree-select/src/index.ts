@@ -1,4 +1,6 @@
-const defaultGetCacheKey = ( ...args ) => args.join();
+type CacheKeyFromArgs< O extends any[] > = ( ...args: O ) => string;
+
+const defaultGetCacheKey: CacheKeyFromArgs< any[] > = ( ...args: any[] ) => args.join();
 
 const isFunction = fn => {
 	return fn && typeof fn === 'function';
@@ -45,7 +47,7 @@ interface Options< O extends any[] > {
 	/**
 	 * Custom function to compute the cache key from the selector's `args` list
 	 */
-	getCacheKey?: ( ...args: O ) => string;
+	getCacheKey?: CacheKeyFromArgs< O >;
 }
 
 /**
