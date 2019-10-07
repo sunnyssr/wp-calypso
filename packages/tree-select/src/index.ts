@@ -3,10 +3,11 @@ type CacheKeyFromArgs< O extends any[] > = ( ...args: O ) => string;
 const defaultGetCacheKey: CacheKeyFromArgs< any[] > = ( ...args: any[] ) => args.join();
 
 const isFunction = ( fn: any ): boolean => {
-	return fn && typeof fn === 'function';
+	return typeof fn === 'function';
 };
 
 const isObject = ( o: any ): o is object => {
+	// Truthiness check is required because `typeof null === 'object'`.
 	return o && typeof o === 'object';
 };
 
