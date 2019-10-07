@@ -2,11 +2,11 @@ type CacheKeyFromArgs< O extends any[] > = ( ...args: O ) => string;
 
 const defaultGetCacheKey: CacheKeyFromArgs< any[] > = ( ...args: any[] ) => args.join();
 
-const isFunction = fn => {
+const isFunction = ( fn: any ): boolean => {
 	return fn && typeof fn === 'function';
 };
 
-const isObject = o => {
+const isObject = ( o: any ): o is object => {
 	return o && typeof o === 'object';
 };
 
