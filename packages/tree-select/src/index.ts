@@ -22,7 +22,7 @@ const isObject = o => {
  * returns an array of values to be used in the Selector as well
  * as the values used by the caching/memoization layer.
  */
-type DependentsSelector< S, O, D > = ( S, ...O ) => D & any[];
+type DependentsSelector< S, O extends any[], D extends any[] > = ( state: S, ...args: O ) => D;
 
 /**
  * Function that computes a value based on the dependent values provided
@@ -31,7 +31,7 @@ type DependentsSelector< S, O, D > = ( S, ...O ) => D & any[];
  * given to the computation are the same as the CachedSelector retured
  * by treeSelect.
  */
-type Selector< D, R, O > = ( D, ...O ) => R;
+type Selector< D extends any[], R, O extends any[] > = ( dependents: D, ...args: O ) => R;
 
 /**
  * The cached selector is the returned function from treeSelect. It should
@@ -39,13 +39,13 @@ type Selector< D, R, O > = ( D, ...O ) => R;
  * first argument instead of the result of DependentsSelector. The rest of
  * the other (O) arguments are the same provided to the Selector.
  */
-type CachedSelector< S, R, O > = ( S, ...O ) => R;
+type CachedSelector< S, R, O extends any[] > = ( state: S, ...args: O ) => R;
 
-interface Options< O > {
+interface Options< O extends any[] > {
 	/**
 	 * Custom function to compute the cache key from the selector's `args` list
 	 */
-	getCacheKey?: ( ...O ) => string;
+	getCacheKey?: ( ...args: O ) => string;
 }
 
 /**
@@ -56,7 +56,7 @@ interface Options< O > {
  * @param  options       Additional options
  * @return               Cached selector
  */
-export default function treeSelect< S, D, R, O >(
+export default function treeSelect< S, D extends any[], R, O extends any[] >(
 	getDependents: DependentsSelector< S, O, D >,
 	selector: Selector< D, R, O >,
 	options: Options< O > = {}
@@ -73,7 +73,7 @@ export default function treeSelect< S, D, R, O >(
 
 	const { getCacheKey = defaultGetCacheKey } = options;
 
-	const cachedSelector = function( state, ...args ) {
+	const cachedSelector = function( state: S, ...args: O ) {
 		const dependents = getDependents( state, ...args );
 
 		if ( process.env.NODE_ENV !== 'production' ) {
