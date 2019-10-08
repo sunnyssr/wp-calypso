@@ -38,7 +38,7 @@ type Selector< D extends any[], R, O extends any[] > = ( dependents: D, ...args:
 
 /**
  * The cached selector is the returned function from treeSelect. It should
- * have the same signatrue as Selector except it accepts the State as its
+ * have the same signature as Selector except it accepts the State as its
  * first argument instead of the result of DependentsSelector. The rest of
  * the other (O) arguments are the same provided to the Selector.
  */
