@@ -37,7 +37,7 @@ class Transfer extends React.PureComponent {
 		let cancelNavItem;
 		if ( domain.transferStatus === transferStatus.PENDING_REGISTRY ) {
 			transferNotice = (
-				<Notice status={ 'is-info' } showDismiss={ false }>
+				<Notice status={ 'is-warning' } showDismiss={ false }>
 					{ translate(
 						'This transfer has been started and is waiting for authorization from your current provider. ' +
 							'If you need to cancel the transfer, please contact them for assistance.'
@@ -47,7 +47,7 @@ class Transfer extends React.PureComponent {
 
 			if ( domain.transferEndDateMoment ) {
 				transferNotice = (
-					<Notice status={ 'is-info' } showDismiss={ false }>
+					<Notice status={ 'is-warning' } showDismiss={ false }>
 						{ translate(
 							'This transfer has been started and is waiting for authorization from your current provider. ' +
 								'It should complete by %(transferFinishDate)s. ' +
