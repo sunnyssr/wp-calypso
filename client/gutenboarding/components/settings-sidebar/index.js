@@ -15,7 +15,14 @@ import { Panel, PanelBody } from '@wordpress/components';
 import Sidebar from '../sidebar';
 
 import './style.scss';
-/* eslint-disable no-restricted-syntax */
+
+/*
+ * Relevant Gutenberg styles:
+ * @wordpress/edit-post/src/components/sidebar/settings-sidebar/style.scss
+ * .edit-post-settings-sidebar__panel-block
+ */
+
+ /* eslint-disable no-restricted-syntax */
 import '@wordpress/edit-post/build-style/style.css';
 /* eslint-enable no-restricted-syntax */
 

@@ -15,8 +15,15 @@ import { withSelect } from '@wordpress/data';
  * Internal dependencies
  */
 
-// import './style.scss';
-/* eslint-disable no-restricted-syntax */
+import './style.scss';
+
+/*
+ * Relevant Gutenberg styles:
+ * @wordpress/edit-post/src/components/sidebar/style.scss
+ * .edit-post-sidebar
+ */
+
+ /* eslint-disable no-restricted-syntax */
 import '@wordpress/edit-post/build-style/style.css';
 /* eslint-enable no-restricted-syntax */
 
