@@ -1,6 +1,6 @@
 module.exports = {
 	preset: '@automattic/calypso-build',
 	rootDir: __dirname,
-	testRegex: 'codemod\\.spec\\.js$',
+	testMatch: [ '<rootDir>/tests/*/codemod.spec.js' ],
 	setupFiles: [ '<rootDir>/setup-tests.js' ],
 };
