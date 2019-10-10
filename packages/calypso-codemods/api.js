@@ -13,6 +13,10 @@ const child_process = require( 'child_process' );
 const config = require( path.join( __dirname, 'config' ) );
 const transformsDir = path.join( __dirname, './transforms' );
 
+const jscodeshiftBin = require( 'module' )
+	.createRequireFromPath( require.resolve( 'jscodeshift' ) )
+	.resolve( require( 'jscodeshift/package.json' ).bin.jscodeshift );
+
 function getLocalCodemodFileNames() {
 	const jsFiles = fs
 		.readdirSync( transformsDir )
@@ -50,8 +54,7 @@ function runCodemod( codemodName, transformTargets ) {
 
 	process.stdout.write( `\nRunning ${ codemodName } on ${ transformTargets.join( ' ' ) }\n` );
 
-	const binPath = path.join( '.', 'node_modules', '.bin', 'jscodeshift' );
-	const jscodeshift = child_process.spawnSync( binPath, binArgs, {
+	child_process.spawnSync( jscodeshiftBin, binArgs, {
 		stdio: [ 'ignore', process.stdout, process.stderr ],
 	} );
 }
@@ -65,9 +68,7 @@ function runCodemodDry( codemodName, filepath ) {
 		'--silent',
 		filepath,
 	];
-	const binPath = path.join( '.', 'node_modules', '.bin', 'jscodeshift' );
-
-	const result = child_process.spawnSync( binPath, binArgs, {
+	const result = child_process.spawnSync( jscodeshiftBin, binArgs, {
 		stdio: 'pipe',
 	} );
 
