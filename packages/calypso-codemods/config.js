@@ -49,7 +49,7 @@ const codemodArgs = {
 	],
 
 	'react-create-class': [
-		...commonArgs[ 'react' ],
+		...commonArgs.react,
 		`--transform=${ require.resolve( 'react-codemod/transforms/class.js' ) }`,
 
 		// react-codemod options
@@ -58,7 +58,7 @@ const codemodArgs = {
 	],
 
 	'react-proptypes': [
-		...commonArgs[ 'react' ],
+		...commonArgs.react,
 		`--transform=${ require.resolve(
 			'react-codemod/transforms/React-PropTypes-to-prop-types.js'
 		) }`,
