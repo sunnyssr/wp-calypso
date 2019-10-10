@@ -62,7 +62,7 @@ export default function transformer( file, api ) {
 
 	/**
 	 * Removes the extra newlines between two import statements
- 	 * caused by `insertAfter()`:
+	 * caused by `insertAfter()`:
 	 * @link https://github.com/benjamn/recast/issues/371
 	 *
 	 * @param {string} str
@@ -133,9 +133,9 @@ export default function transformer( file, api ) {
 	 * () => {
 	 *   if (true) {
 	 *      page.redirect('/foo');
-     *   } else {
+	 *   } else {
 	 *      page.redirect('/bar');
-     *   }
+	 *   }
 	 * }
 	 *
 	 * @param {object} node
@@ -371,7 +371,7 @@ export default function transformer( file, api ) {
 	}
 
 	/**
-  	 * Removes:
+	 * Removes:
 	 * ```
 	 * ReactDom.unmountComponentAtNode( document.getElementById( 'secondary' ) );
 	 * ```
