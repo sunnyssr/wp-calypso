@@ -4,10 +4,14 @@
  *
  * It is smart enough to retain whether or not a docblock should keep a prettier/formatter pragma
  */
+
+/**
+ * External dependencies
+ */
 const fs = require( 'fs' );
 const path = require( 'path' );
 const _ = require( 'lodash' );
-const config = require( path.join( __dirname, '../config' ) );
+const nodeJsDeps = require( 'repl' )._builtinLibs;
 
 function findPkgJson( target ) {
 	let root = path.dirname( target );
@@ -35,14 +39,13 @@ const getPackageJsonDeps = ( function() {
 		const json = findPkgJson( root );
 		packageJsonDeps = []
 			.concat( nodeJsDeps )
-			.concat( Object.keys( json.dependencies ) )
-			.concat( Object.keys( json.devDependencies ) );
+			.concat( json.dependencies ? Object.keys( json.dependencies ) : [] )
+			.concat( json.devDependencies ? Object.keys( json.devDependencies ) : [] );
 
 		return new Set( packageJsonDeps );
 	};
 } )();
 
-const nodeJsDeps = require( 'repl' )._builtinLibs;
 const externalBlock = {
 	type: 'Block',
 	value: '*\n * External dependencies\n ',
