@@ -7,7 +7,7 @@ import { get, includes, some, endsWith, find } from 'lodash';
 /**
  * Internal dependencies
  */
-import { isMappedDomain, isRegisteredDomain } from 'lib/domains';
+import { isMappedDomainWithWpcomNameservers, isRegisteredDomain } from 'lib/domains';
 import userFactory from 'lib/user';
 
 /**
@@ -107,10 +107,11 @@ function getGSuiteSupportedDomains( domains ) {
 			return false;
 		}
 
-		const isHostedOnWpcom = isRegisteredDomain( domain ) && ( domain.hasWpcomNameservers || hasGSuiteWithUs( domain ) );
-		const isMapped = isMappedDomain( domain );
+		const isHostedOnWpcom =
+			isRegisteredDomain( domain ) && ( domain.hasWpcomNameservers || hasGSuiteWithUs( domain ) );
+		const isMappedWithWpcomNameservers = isMappedDomainWithWpcomNameservers( domain );
 
-		return ( isHostedOnWpcom || isMapped ) && canDomainAddGSuite( domain.name );
+		return ( isHostedOnWpcom || isMappedWithWpcomNameservers ) && canDomainAddGSuite( domain.name );
 	} );
 }
 
