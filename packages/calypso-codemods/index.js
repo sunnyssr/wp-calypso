@@ -1,17 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * External dependencies
- */
-const fs = require( 'fs' );
-const path = require( 'path' );
-const child_process = require( 'child_process' );
-const glob = require( 'glob' );
-
-/**
  * Internal dependencies
  */
-const config = require( './config' );
 const api = require( './api' );
 
 function main() {
@@ -30,7 +21,7 @@ function main() {
 			].join( '\n' )
 		);
 
-		process.exit( 0 );
+		process.exit( 0 ); // eslint-disable-line no-process-exit
 	}
 
 	const [ names, ...targets ] = args;
