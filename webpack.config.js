@@ -23,6 +23,10 @@ const SassConfig = require( '@automattic/calypso-build/webpack/sass' );
 const TranspileConfig = require( '@automattic/calypso-build/webpack/transpile' );
 const { cssNameFromFilename } = require( '@automattic/calypso-build/webpack/util' );
 const ExtensiveLodashReplacementPlugin = require( '@automattic/webpack-extensive-lodash-replacement-plugin' );
+const Prism = require( 'prismjs' );
+require( 'prismjs/components/prism-jsx' );
+require( 'prismjs/components/prism-json' );
+require( 'prismjs/components/prism-scss' );
 
 /**
  * Internal dependencies
@@ -54,6 +58,9 @@ const extraPath = browserslistEnv === 'defaults' ? 'fallback' : browserslistEnv;
 if ( ! process.env.BROWSERSLIST_ENV ) {
 	process.env.BROWSERSLIST_ENV = browserslistEnv;
 }
+
+// Alias `javascript` language to `es6`
+Prism.languages.es6 = Prism.languages.javascript;
 
 /*
  * Create reporter for ProgressPlugin (used with EMIT_STATS)
@@ -262,6 +269,23 @@ const webpackConfig = {
 			{
 				test: /node_modules[/\\]tinymce/,
 				use: 'imports-loader?this=>window',
+			},
+			{
+				test: /\.md$/,
+				use: [
+					{
+						loader: 'html-loader',
+					},
+					{
+						loader: 'markdown-loader',
+						options: {
+							highlight: function( code, language ) {
+								const syntax = Prism.languages[ language ];
+								return syntax ? Prism.highlight( code, syntax ) : code;
+							},
+						},
+					},
+				],
 			},
 		],
 	},
