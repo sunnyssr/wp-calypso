@@ -59,7 +59,8 @@ const internalBlock = {
  * Returns true if the given text contains @format.
  * within its first docblock. False otherwise.
  *
- * @param {String} text text to scan for the format keyword within the first docblock
+ * @param  {string}  text text to scan for the format keyword within the first docblock
+ * @return {boolean}      True if @format is found, otherwise false
  */
 const shouldFormat = text => {
 	const firstDocBlockStartIndex = text.indexOf( '/**' );
@@ -80,11 +81,17 @@ const shouldFormat = text => {
 
 /**
  * Removes the extra newlines between two import statements
+ *
+ * @param  {string} str Input string
+ * @return {string}     Transformed string
  */
 const removeExtraNewlines = str => str.replace( /(import.*\n)\n+(import)/g, '$1$2' );
 
 /**
  * Adds a newline in between the last import of external deps + the internal deps docblock
+ *
+ * @param  {string} str Input string
+ * @return {string}     Transformed string
  */
 const addNewlineBeforeDocBlock = str => str.replace( /(import.*\n)(\/\*\*)/, '$1\n$2' );
 

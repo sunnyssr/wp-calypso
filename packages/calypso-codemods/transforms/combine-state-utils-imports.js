@@ -49,8 +49,8 @@ module.exports = function( file, api ) {
 	//Save Comment if possible
 	const comments = stateUtilsImports.at( 0 ).get().node.comments;
 
-	const addImport = importNames => {
-		const names = importNames.map( name => {
+	const addImport = imports => {
+		const names = imports.map( name => {
 			if ( name.local === name.imported ) {
 				return j.importSpecifier( j.identifier( name.local ) );
 			}

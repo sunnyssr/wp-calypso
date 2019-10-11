@@ -1,4 +1,3 @@
-/** @format */
 export default function transformer( file, api ) {
 	const j = api.jscodeshift;
 	const ReactUtils = require( 'react-codemod/transforms/utils/ReactUtils' )( j );

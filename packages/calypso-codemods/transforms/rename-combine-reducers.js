@@ -1,22 +1,22 @@
-/*
- This codemod updates
-
- import { combineReducersWithPersistence } from 'state/utils'; to
- import { combineReducers } from 'state/utils';
- 
- and updates
- 
- combineReducersWithPersistence( {
-    foo,
-    bar
- } );
- 
- to
- 
- combineReducers( {
-   foo,
-   bar
- } );
+/**
+ * This codemod updates
+ *
+ * import { combineReducersWithPersistence } from 'state/utils'; to
+ * import { combineReducers } from 'state/utils';
+ *
+ * and updates
+ *
+ * combineReducersWithPersistence( {
+ *    foo,
+ *    bar
+ * } );
+ *
+ * to
+ *
+ * combineReducers( {
+ *   foo,
+ *   bar
+ * } );
  */
 
 module.exports = function( file, api ) {
@@ -69,8 +69,8 @@ module.exports = function( file, api ) {
 
 	//save the comment if possible
 	const comments = combineReducerImport.at( 0 ).get().node.comments;
-	const addImport = importNames => {
-		const names = importNames.map( name => {
+	const addImport = imports => {
+		const names = imports.map( name => {
 			if ( name.local === name.imported ) {
 				return j.importSpecifier( j.identifier( name.local ) );
 			}
