@@ -240,7 +240,7 @@ function setupReducerPersistence( reducer ) {
 	if ( reducer.schema ) {
 		throw new Error(
 			'`schema` properties in reducers are no longer supported.' +
-				'Please use createReducerWithValidation or wrap reducers with withSchemaValidation.'
+				'Please wrap reducers with withSchemaValidation.'
 		);
 	}
 
