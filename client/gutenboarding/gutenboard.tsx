@@ -18,7 +18,7 @@ import '@wordpress/format-library';
 /**
  * Internal dependencies
  */
-import { Header } from './header';
+import { Header } from 'gutenboarding/header';
 import './style.scss';
 
 /* eslint-disable no-restricted-syntax */
