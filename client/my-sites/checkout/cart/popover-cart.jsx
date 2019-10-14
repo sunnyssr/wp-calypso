@@ -8,13 +8,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { reject } from 'lodash';
 import classNames from 'classnames';
-<<<<<<< HEAD
-import { localize } from 'i18n-calypso';
-import Gridicon from 'components/gridicon';
-=======
 import { localize, translate } from 'i18n-calypso';
->>>>>>> Updates per review request:
-
 /**
  * Internal dependencies
  */
