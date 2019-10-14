@@ -9718,9 +9718,9 @@
 			"integrity": "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
 		},
 		"fsevents": {
-			"version": "2.0.3",
-			"resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.0.3.tgz",
-			"integrity": "sha512-kbyPVQrgcnetW389rufw+WAl9szz0ougHcW6faFZ/RDESUwgmCWnzmXHONmdKSWiadtj6VaaewwhyX7ckL+itw==",
+			"version": "2.1.1",
+			"resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.1.1.tgz",
+			"integrity": "sha512-4FRPXWETxtigtJW/gxzEDsX1LVbPAM93VleB83kZB+ellqbHMkyt2aJfuzNLRvFPnGi6bcE5SvfxgbXPeKteJw==",
 			"optional": true
 		},
 		"fstream": {
