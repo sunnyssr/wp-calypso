@@ -1047,6 +1047,13 @@
 			"requires": {
 				"core-js": "^2.6.5",
 				"regenerator-runtime": "^0.13.2"
+			},
+			"dependencies": {
+				"core-js": {
+					"version": "2.6.10",
+					"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
+					"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
+				}
 			}
 		},
 		"@babel/preset-env": {
@@ -4644,6 +4651,11 @@
 				"regenerator-runtime": "^0.11.0"
 			},
 			"dependencies": {
+				"core-js": {
+					"version": "2.6.10",
+					"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
+					"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
+				},
 				"regenerator-runtime": {
 					"version": "0.11.1",
 					"resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz",
@@ -6814,9 +6826,9 @@
 			"integrity": "sha1-Z29us8OZl8LuGsOpJP1hJHSPV40="
 		},
 		"core-js": {
-			"version": "2.6.9",
-			"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.9.tgz",
-			"integrity": "sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A=="
+			"version": "3.3.2",
+			"resolved": "https://registry.npmjs.org/core-js/-/core-js-3.3.2.tgz",
+			"integrity": "sha512-S1FfZpeBchkhyoY76YAdFzKS4zz9aOK7EeFaNA2aJlyXyA+sgqz6xdxmLPGXEAf0nF44MVN1kSjrA9Kt3ATDQg=="
 		},
 		"core-js-compat": {
 			"version": "3.2.1",
@@ -18876,6 +18888,11 @@
 						"select": "^1.1.2",
 						"tiny-emitter": "^2.0.0"
 					}
+				},
+				"core-js": {
+					"version": "2.6.10",
+					"resolved": "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz",
+					"integrity": "sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA=="
 				},
 				"prismjs": {
 					"version": "1.6.0",
