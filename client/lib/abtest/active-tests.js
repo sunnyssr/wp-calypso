@@ -152,4 +152,14 @@ export default {
 		allowExistingUsers: true,
 		localeTargets: 'any',
 	},
+	checkoutPaymentTypes: {
+		datestamp: '20191009',
+		variations: {
+			tabs: 50,
+			radios: 50,
+		},
+		defaultVariation: 'tabs',
+		allowExistingUsers: true,
+		localeTargets: 'any',
+	},
 };
